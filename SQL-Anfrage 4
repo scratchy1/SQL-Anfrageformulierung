@@ -1,0 +1,11 @@
+Namen aller Themen auflisten. Falls ein Thema bereits in einem oder 
+mehreren Kursen behandelt wurde, dann zusätzlich zum Namen
+alle Kursorte angeben. Name und Ort sollen paarweise aufgelistet werden. Jedes
+Paar soll höchstens ein Mal in der Auflistung erscheinen. Die Auflistung soll
+zusätzlich nach dem Kursort sortiert werden.
+
+SELECT DISTINCT Thema .Name , Kurs. Ort
+FROM Thema
+LEFT JOIN behandelt ON behandelt. ThemaBez = Thema. Name
+LEFT JOIN Kurs ON Kurs.Nr = behandelt. KursNr
+ORDER BY Kurs.Ort
