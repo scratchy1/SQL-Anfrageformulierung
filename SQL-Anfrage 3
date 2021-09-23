@@ -1,0 +1,7 @@
+jeden Kursort und die bisherige Gesamtteilnehmerzahl über alle 
+Kurse an diesem Ort dann auf, falls diese mindestens 30 beträgt.
+
+SELECT Ort , SUM ( AnzTeiln)
+FROM Kurs
+GROUP BY Ort
+HAVING ( SUM ( AnzTeiln) >= 30)
