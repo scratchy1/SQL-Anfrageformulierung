@@ -1,0 +1,16 @@
+Namen aller stark nachgefragten Themen auf, in denen sich der 2 Punkte
+Kursleiter mit der ID ”3“ auskennt.
+
+SELECT Name
+FROM Thema , Kenntnis , Kursleiter
+WHERE Kenntnis. LeiterID = Kursleiter.ID
+AND Thema . Name = Kenntnis. ThemaBez
+AND Thema . nachgefragt = ’ja ’
+AND Kursleiter.ID = 3
+alternative L¨osung:
+SELECT Thema. Name
+FROM Kursleiter
+JOIN Kenntnis ON Kenntnis. LeiterID = Kursleiter.ID
+JOIN Thema ON Thema . Name = Kenntnis. ThemaBez
+AND Thema . nachgefragt = ’ja ’
+AND Kursleiter.ID = 3
