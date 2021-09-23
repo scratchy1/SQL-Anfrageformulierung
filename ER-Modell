@@ -1,0 +1,20 @@
+Gegeben sei das folgende Entity-Relationship-Modell, das die Zusammenh¨ange zwischen
+Kursleitern, ihren Kenntnissen und Kursen darstellt:
+Ein Kursleiter kann beliebig viele Kurse leiten, welche an verschiedenen Orten und
+mit unterschiedlichen Teilnehmerzahlen (AnzTeiln) stattfinden k¨onnen. Außerdem
+hat ein Kursleiter Kenntnisse in verschiedenen Themen, welche in Kursen behandelt
+werden. ¨ Uber das Attribut nachgefragt wird angegeben, ob ein Thema stark
+nachgefragt wird (Attributwert ”ja“) oder nicht (Attributwert ”nein“).
+Aus diesen Zusammenh¨angen lassen sich die folgenden Relationen erstellen:
+Kursleiter (ID, Nachname)
+Kurs (Nr, AnzTeiln, Ort)
+Thema (Name, nachgefragt)
+leitet (LeiterID, KursNr)
+FOREIGN KEY (LeiterID) REFERENCES Kursleiter (ID)
+FOREIGN KEY (KursNr) REFERENCES Kurs (Nr)
+Kenntnis (LeiterID, ThemaBez)
+FOREIGN KEY (LeiterID) REFERENCES Kursleiter (ID)
+FOREIGN KEY (ThemaBez) REFERENCES Thema (Name)
+behandelt (ThemaBez, KursNr)
+FOREIGN KEY (ThemaBez) REFERENCES Thema (Name)
+FOREIGN KEY (KursNr) REFERENCES Kurs (Nr)
