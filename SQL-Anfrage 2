@@ -1,0 +1,8 @@
+Welche Kursleiter kennen sich nicht im Thema mit dem Namen 3 Punkte
+”Webdesign“ aus?
+SELECT Nachname
+FROM Kursleiter
+WHERE Kursleiter.ID NOT IN (
+SELECT LeiterID FROM Kenntnis
+WHERE Kenntnis. ThemaBez = ’Webdesign’
+)
